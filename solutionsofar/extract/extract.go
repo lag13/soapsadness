@@ -94,12 +94,6 @@ type ExtractURLResponse struct {
 }
 
 // Operation wrapper for Extract.
-// OperationExtract was auto-generated from WSDL.
-type OperationExtract struct {
-	Extract *Extract `xml:"extract,omitempty" json:"extract,omitempty" yaml:"extract,omitempty"`
-}
-
-// Operation wrapper for Extract.
 // OperationExtractResponse was auto-generated from WSDL.
 type OperationExtractResponse struct {
 	ExtractResponse *ExtractResponse `xml:"extractResponse,omitempty" json:"extractResponse,omitempty" yaml:"extractResponse,omitempty"`
@@ -135,18 +129,14 @@ type extractInterface struct {
 }
 
 // Extract was auto-generated from WSDL.
-func (p *extractInterface) Extract(Extract *Extract) (*ExtractResponse, error) {
+func (p *extractInterface) Extract(ext *Extract) (*ExtractResponse, error) {
 	α := struct {
-		OperationExtract `xml:"tns:extract"`
+		Extract *Extract `xml:"tns:extract"`
 	}{
-		OperationExtract{
-			Extract,
-		},
+		Extract: ext,
 	}
 
-	γ := struct {
-		OperationExtractResponse `xml:"extractResponse"`
-	}{}
+	γ := OperationExtractResponse{}
 	if err := p.cli.RoundTripWithAction("Extract", α, &γ); err != nil {
 		return nil, err
 	}
