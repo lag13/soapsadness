@@ -1,0 +1,46 @@
+# Gopkg.toml example
+#
+# Refer to https://github.com/golang/dep/blob/master/docs/Gopkg.toml.md
+# for detailed Gopkg.toml documentation.
+#
+# required = ["github.com/user/thing/cmd/thing"]
+# ignored = ["github.com/user/project/pkgX", "bitbucket.org/user/project/pkgA/pkgY"]
+#
+# [[constraint]]
+#   name = "github.com/user/project"
+#   version = "1.0.0"
+#
+# [[constraint]]
+#   name = "github.com/user/project2"
+#   branch = "dev"
+#   source = "github.com/myfork/project2"
+#
+# [[override]]
+#   name = "github.com/x/y"
+#   version = "2.4.0"
+#
+# [prune]
+#   non-go = false
+#   go-tests = true
+#   unused-packages = true
+
+
+[[constraint]]
+  name = "github.com/fiorix/wsdl2go"
+  revision = "69b96af60ac9b29848069ac8e6eed1d655496847"
+
+[[constraint]]
+  name = "github.com/hooklift/gowsdl"
+  revision = "193c95ad2f469c5f82a8ad8fca580a159dc85a60"
+
+[[constraint]]
+  name = "github.com/pkg/errors"
+  version = "0.8.0"
+
+[[constraint]]
+  name = "github.com/tiaguinho/gosoap"
+  revision = "cee27a0d21b322416e136fcf06f7f10fb2fbe3ac"
+
+[prune]
+  go-tests = true
+  unused-packages = true
