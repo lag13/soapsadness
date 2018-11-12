@@ -6,7 +6,7 @@ import (
 
 	"github.com/hooklift/gowsdl/soap"
 	"github.com/lag13/soapsadness"
-	"github.com/lag13/soapsadness/hooklift/extract"
+	"github.com/lag13/soapsadness/hookliftgowsdl/extract"
 )
 
 func main() {

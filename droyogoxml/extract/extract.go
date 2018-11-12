@@ -196,8 +196,6 @@ func (c *Client) Do(method, uri, action string, in, out interface{}) error {
 			return err
 		}
 		body = &buf
-		// testing to see request output
-		fmt.Printf("%s\n", buf.Bytes())
 	}
 	req, err := http.NewRequest(method, uri, body)
 	if err != nil {
