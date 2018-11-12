@@ -4,26 +4,26 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/cbdr/ats-cs-indexer/soaptesting"
-	"github.com/cbdr/ats-cs-indexer/soaptesting/fiorixwsdl2go/extract"
 	"github.com/fiorix/wsdl2go/soap"
+	"github.com/lag13/soapsadness"
+	"github.com/lag13/soapsadness/fiorixwsdl2go/extract"
 )
 
 func main() {
 	var filename = "Sample_IT_Resume_MartinL.pdf"
-	b, err := soaptesting.GetBase64EncodedBytes("../" + filename)
+	b, err := soapsadness.GetBase64EncodedBytes("../" + filename)
 	if err != nil {
 		log.Panicf("%+v", err)
 	}
 	soapClient := soap.Client{
-		URL:       soaptesting.ExtractWSDLURL,
+		URL:       soapsadness.ExtractWSDLURL,
 		Namespace: extract.Namespace,
 	}
 	soapService := extract.NewExtractInterface(&soapClient)
 	resp, err := soapService.Extract(&extract.Extract{
-		Account:     &soaptesting.ExtractAccount,
-		Username:    &soaptesting.ExtractUsername,
-		Password:    &soaptesting.ExtractPassword,
+		Account:     &soapsadness.ExtractAccount,
+		Username:    &soapsadness.ExtractUsername,
+		Password:    &soapsadness.ExtractPassword,
 		FileName:    &filename,
 		FileContent: &b,
 	})

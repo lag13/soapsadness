@@ -3,24 +3,24 @@ package main
 import (
 	"log"
 
-	"github.com/cbdr/ats-cs-indexer/soaptesting"
+	"github.com/lag13/soapsadness"
 	"github.com/tiaguinho/gosoap"
 )
 
 func main() {
 	const filename = "Sample_IT_Resume_MartinL.pdf"
-	b, err := soaptesting.GetBase64EncodedBytes("../" + filename)
+	b, err := soapsadness.GetBase64EncodedBytes("../" + filename)
 	if err != nil {
 		log.Panicf("%+v", err)
 	}
-	soapClient, err := gosoap.SoapClient(soaptesting.ExtractWSDLURL)
+	soapClient, err := gosoap.SoapClient(soapsadness.ExtractWSDLURL)
 	if err != nil {
 		panic(err)
 	}
 	params := gosoap.Params{
-		"Account":     soaptesting.ExtractAccount,
-		"Username":    soaptesting.ExtractUsername,
-		"Password":    soaptesting.ExtractPassword,
+		"Account":     soapsadness.ExtractAccount,
+		"Username":    soapsadness.ExtractUsername,
+		"Password":    soapsadness.ExtractPassword,
 		"FileName":    filename,
 		"FileContent": b,
 	}

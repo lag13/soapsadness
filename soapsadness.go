@@ -1,4 +1,4 @@
-package soaptesting
+package soapsadness
 
 import (
 	"bytes"
@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	ExtractWSDLURL  = os.Getenv("EXTRACT_WSDL_URL")
+	ExtractWSDLURL  = "https://staging.textkernel.com/match/soap/extract?wsdl"
 	ExtractAccount  = os.Getenv("EXTRACT_ACCOUNT")
 	ExtractUsername = os.Getenv("EXTRACT_USERNAME")
 	ExtractPassword = os.Getenv("EXTRACT_PASSWORD")
